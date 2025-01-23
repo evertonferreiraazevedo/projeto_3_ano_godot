@@ -25,5 +25,5 @@ func _on_host_pressed() -> void:
 func adicionar_jogador(id_jogador):
 	var jogador = player_scene.instantiate()
 	jogador.name = str(id_jogador)
-	call_deferred("add_child", jogador)
+	add_child(jogador)
 	
