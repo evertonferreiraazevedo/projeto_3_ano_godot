@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://crnl1c1ckjt2t"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_5wmhu"]
+[ext_resource type="PackedScene" uid="uid://gnn4r8jq38em" path="res://player.tscn" id="2_aqe2e"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_5wmhu")
+player_scene = ExtResource("2_aqe2e")
+
+[node name="MultiplayerHUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="MultiplayerHUD"]
+layout_mode = 0
+offset_right = 136.0
+offset_bottom = 136.0
+
+[node name="Join" type="Button" parent="MultiplayerHUD/Panel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -45.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Join
+"
+
+[node name="Host" type="Button" parent="MultiplayerHUD/Panel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 12.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Host
+"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 320)
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://player.tscn")
+spawn_path = NodePath("..")
+
+[connection signal="pressed" from="MultiplayerHUD/Panel/Join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="MultiplayerHUD/Panel/Host" to="." method="_on_host_pressed"]
