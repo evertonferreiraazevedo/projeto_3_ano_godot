@@ -2,17 +2,13 @@ extends CharacterBody2D
 
 const SPEED = 400
 var clientes = 1
+var nome_jogador = "Anônimo"
+@onready var label = $Label
 
 func _enter_tree() -> void:
 	set_multiplayer_authority(self.name.to_int())
+	$Label.text = nome_jogador
 
-func _ready() -> void:
-	if (self.name == "1"):
-		$Label.text = self.name
-	else:
-		clientes +=1
-		$Label.text = str(clientes)
-	
 	
 func _physics_process(delta: float) -> void:
 	

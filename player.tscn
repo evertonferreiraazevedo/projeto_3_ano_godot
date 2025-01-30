@@ -23,7 +23,6 @@ offset_left = -64.0
 offset_top = -88.0
 offset_right = 64.0
 offset_bottom = -65.0
-text = "Host"
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_3ypex")
