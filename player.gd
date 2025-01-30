@@ -1,12 +1,18 @@
 extends CharacterBody2D
 
 const SPEED = 400
+var clientes = 1
 
 func _enter_tree() -> void:
 	set_multiplayer_authority(self.name.to_int())
 
 func _ready() -> void:
-	$Label.text = self.name
+	if (self.name == "1"):
+		$Label.text = self.name
+	else:
+		clientes +=1
+		$Label.text = str(clientes)
+	
 	
 func _physics_process(delta: float) -> void:
 	
@@ -30,8 +36,5 @@ func _physics_process(delta: float) -> void:
 		
 		#var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down") 
 		#velocity = direction * SPEED
-	
-	
-	
 
 	move_and_slide()
