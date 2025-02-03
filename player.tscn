@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://gnn4r8jq38em"]
+[gd_scene load_steps=5 format=3 uid="uid://gnn4r8jq38em"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_1lpkg"]
 [ext_resource type="Texture2D" uid="uid://biollkreivu8n" path="res://icon.svg" id="2_fh555"]
+[ext_resource type="PackedScene" uid="uid://c5e18m5dtqiwh" path="res://bullet.tscn" id="2_pdxu8"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_3ypex"]
 properties/0/path = NodePath(".:position")
@@ -14,6 +15,7 @@ properties/1/replication_mode = 1
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(568, 296)
 script = ExtResource("1_1lpkg")
+bullet_scene = ExtResource("2_pdxu8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_fh555")

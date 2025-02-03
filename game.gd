@@ -20,14 +20,14 @@ func _on_host_pressed() -> void:
 	$MultiplayerHUD.visible = false
 	#multiplayer.multiplayer_peer.peer_connected.connect(adicionar_jogador)
 	clientes += 1
-	print(clientes)
+	#print(clientes)
 	adicionar_jogador(1, "Host")
 
 @rpc("any_peer")
 func adicionar_jogador(id_jogador, nome):
 	if multiplayer.is_server():
 		var jogador = player_scene.instantiate()
-		print(clientes)
+		#print(clientes)
 		jogador.name = str(id_jogador)
 		add_child(jogador)
 		clientes +=1
@@ -41,6 +41,7 @@ func atualizar_nome(id, nome):
 	var jogador = get_node_or_null(str(id))
 	if jogador:
 		jogador.label.text = nome
+		print(nome)
 		
 
 #var clientes = 1
