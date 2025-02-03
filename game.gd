@@ -5,8 +5,6 @@ const PORT = 3333
 #var peer = ENetMultiplayerPeer.new()
 @export var player_scene: PackedScene
 
-
-
 func _on_join_pressed() -> void:
 	var peer = ENetMultiplayerPeer.new()
 	peer.create_client(ADDRESS, PORT)
@@ -21,7 +19,7 @@ func _on_host_pressed() -> void:
 	multiplayer.multiplayer_peer = peer
 	$MultiplayerHUD.visible = false
 	#multiplayer.multiplayer_peer.peer_connected.connect(adicionar_jogador)
-	clientes =+ 1
+	clientes += 1
 	print(clientes)
 	adicionar_jogador(1, "Host")
 
@@ -37,7 +35,6 @@ func adicionar_jogador(id_jogador, nome):
 	
 func on_connect_to_server():
 	rpc_id(1, "adicionar_jogador", multiplayer.get_unique_id(), $MultiplayerHUD/Panel/LineEdit.text)
-	
 	
 @rpc("any_peer")
 func atualizar_nome(id, nome):

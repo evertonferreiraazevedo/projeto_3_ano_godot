@@ -9,7 +9,6 @@ func _enter_tree() -> void:
 	set_multiplayer_authority(self.name.to_int())
 	$Label.text = nome_jogador
 
-	
 func _physics_process(delta: float) -> void:
 	
 	if (is_multiplayer_authority()):
@@ -27,9 +26,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.y = move_toward(velocity.y, 0, SPEED)
 			
-		
 		#Versão alternativa com menos linhas ambas direções
-		
 		#var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down") 
 		#velocity = direction * SPEED
 
