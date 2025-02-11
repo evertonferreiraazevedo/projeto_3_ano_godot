@@ -6,12 +6,10 @@ var nome_jogador = "Anônimo"
 @onready var label = $Label
 
 @export var bullet_scene: PackedScene  # Referência para a cena da bala
-
 func _unhandled_input(event):
 	# Verifica se o evento de pressionamento de botão de tiro ocorreu
 	if event.is_action_pressed("shoot"):
 		spawn_bullet()
-
 @rpc("any_peer")  # Todos os jogadores recebem a RPC
 func spawn_bullet():
 	# Somente quem pressionou o botão irá criar a bala
@@ -28,6 +26,9 @@ func spawn_bullet():
 func _enter_tree() -> void:
 	set_multiplayer_authority(self.name.to_int())
 	$Label.text = nome_jogador
+	
+func mudar_nome(novo_nome):
+	$Label.text = novo_nome
 
 func _physics_process(delta: float) -> void:
 	

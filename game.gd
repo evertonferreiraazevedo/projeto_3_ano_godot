@@ -11,6 +11,7 @@ func _on_join_pressed() -> void:
 	multiplayer.multiplayer_peer = peer
 	$MultiplayerHUD.visible = false
 	multiplayer.connected_to_server.connect(on_connect_to_server)
+
 	
 var  clientes = 0
 func _on_host_pressed() -> void:
@@ -40,7 +41,7 @@ func on_connect_to_server():
 func atualizar_nome(id, nome):
 	var jogador = get_node_or_null(str(id))
 	if jogador:
-		jogador.label.text = nome
+		jogador.mudar_nome(nome)
 		print(nome)
 		
 
